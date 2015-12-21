@@ -84,6 +84,7 @@ postgres_install(){
 
 postgres_configure(){
     su - postgres -c "createuser --createdb --no-createrole $ODOO_USER"
+    echo "TODO: http://www.openerp.bg/%D0%B1%D0%BB%D0%BE%D0%B3/item/163-%D0%BF%D1%80%D0%BE%D0%BC%D1%8F%D0%BD%D0%B0-%D0%BD%D0%B0-postgresql-default-template0-%D0%BD%D0%B0-utf8-encoding"
 }
 
 odoo_easy_install(){
@@ -105,9 +106,6 @@ odoo_easy_install(){
 odoo_configure(){
     sed -i s/"; admin_passwd = admin"/"admin_passwd = $ODOO_ADMIN"/g /etc/odoo/openerp-server.conf
     sed -i s/"db_user = .*"/"db_user = $ODOO_USER"/g /etc/odoo/openerp-server.conf
-
-db_user = odoo
-
 }
 
 clean_server(){
